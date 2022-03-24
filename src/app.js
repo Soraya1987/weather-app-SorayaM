@@ -29,7 +29,6 @@ function formatDate(timeStamp)
     
       let formatDate = ` ${year}-${month}-${numDay}`;
       nowDate.innerHTML=formatDate; 
-    console.log(year);
     return `${day} ${hourse}: ${minutes}`;
 }
 
@@ -57,5 +56,4 @@ function displayTemperature(response){
 
 let apiKey="43f1d8f12b8168c4b7d63a4219944689";
 let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=New York&appid=${apiKey}&units=metric`;
-//console.log(apiUrl);
 axios.get(apiUrl).then(displayTemperature);
