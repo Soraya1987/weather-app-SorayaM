@@ -44,10 +44,12 @@ li {
   padding: 0;
 }
 li {
-  text-transform: capitalize;
   list-style: none;
   color: rgb(135, 135, 135);
   font-size: 20px;
   font-weight: 150;
   line-height: 25px;
+}
+li::first-letter {
+  text-transform: capitalize;
 }
