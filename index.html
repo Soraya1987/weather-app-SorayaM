@@ -20,6 +20,9 @@
        <div class="weather-app-wrapper">
          <div class="weather-app">
              <div class="overview">
+                 
+             <div class="row">
+              <div class="col-4">
                 <h1 id="city">
                 </h1>
                 <ul>
@@ -27,8 +30,24 @@
                     <li id="nowDate"></li>
                     <li id="description"></li>
                 </ul>
+              </div>
+              <div class="col-4">
+                  <form id="search-form" >
+                
+                  <div class="row">
+                      <div class="col-8"> 
+                        <input type="search" placeholder="Type a city..." class="form-control w-100" id="city-input" />
+                      </div>
+                    
+                    <div class="col-4">
+                       <input type="submit" value="Search" class="btn btn-primary w-100" />
+                    </div>
+                    </form>
+                </div>
+                
+              </div>
              </div>
-          
+            </div>
             <div class="row">
                 <div class="col-4">
                     <div class="clearfix weather-temprature">
