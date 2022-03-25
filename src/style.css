@@ -38,6 +38,17 @@ small {
   font-size: 20px;
   top: -17px;
 }
+.weather-temprature .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+.weather-temprature .active:hover {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
 ul,
 li {
   margin: 0;
