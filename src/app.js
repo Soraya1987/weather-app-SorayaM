@@ -32,7 +32,11 @@ function formatDate(timeStamp)
     return `${day} ${hourse}: ${minutes}`;
 }
 
-
+function getForecast(coordinates){
+  let apikey="43f1d8f12b8168c4b7d63a4219944689";
+  let apiUrl=`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apikey}&units=metric`;
+axios.get(apiUrl).then(displayForecast);
+}
 
 function displayTemperature(response){
     let temperatureElement=document.querySelector("#temperature");
@@ -59,6 +63,7 @@ function displayTemperature(response){
      celciusTemperature=response.data.main.temp;
      temperatureElement.innerHTML=Math.round(celciusTemperature);
 
+     getForecast(response.data.coord);
 }
 
 
@@ -93,35 +98,46 @@ function displayCelsiusTemperature(event){
     temperatureElement.innerHTML=Math.round (celciusTemperature);
 }
 
-function displayForcast()
+function formatDay(timeStamp)
 {
-  let forecastElement=document.querySelector("#forecast");
-  let days=["Thu","Fri","Sat","Sun"];
-  let forecastHTML=`<div clas="row">`;
-  days.forEach(function(day){
-    forecastHTML+=
-    `    <div class="col-2">
-                        <div class="weather-forcast-date">
-                           Thu
-                        </div>
-                        
-                        <img src="https://ssl.gstatic.com/onebox/weather/48/rain_s_cloudy.png" alt="" width="40px" />
-                        <div class="weather-forcast-temperatures">
-                            <spn class="weather-forcast-temperature-max">
-                               18°
-                            </spn>
-                            <spn class="weather-forcast-temperature-min">
-                                12°
-                            </spn>
-                        </div>
-                         
-         </div>
-    `;
-  });
-  forecastHTML+=`<\div>`;
-  forecastElement.innerHTML=forecastHTML;
+  let date=new Date(timeStamp*1000);
+  let day=date.getDay();
+   let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+  return days[day];
 }
 
+function displayForecast(response){
+    let forcast=response.data.daily;
+    let forecastElement=document.querySelector("#forecast");
+    let forecastHTML=`<div class="row">`;
+
+    forcast.forEach(function(forcastDay, index){
+        if(index<6){
+           forecastHTML+=`
+        <div class="col-2">
+            <div class="weather-forcast-date">${formatDay(forcastDay.dt)}</div>
+              <img src="https://openweathermap.org/img/wn/${forcastDay.weather[0].icon}@2x.png" alt="" width="36">
+            <div class="weather-forcast-temperatures">
+              <span class="weather-forcast-temprature-max"> ${Math.round(forcastDay.temp.max)}° </span>
+              <span class="weather-forcast-temprature-min"> ${Math.round(forcastDay.temp.min)}° </span>
+            </div>  
+        </div>
+        `;
+        }
+        
+    }
+    );
+    forecastHTML+=`</div>`;
+    forecastElement.innerHTML=forecastHTML;
+}
 let celciusTemperature=null;
 
 let form=document.querySelector("#search-form");
@@ -132,6 +148,6 @@ fahreintheitLink.addEventListener("click",displayFahrenheitTemperature);
 
 let celsiusLink=document.querySelector("#celcuis-link");
 celsiusLink.addEventListener("click",displayCelsiusTemperature);
-displayForcast();
+//displayForecast();
 search("Tabriz");
 
