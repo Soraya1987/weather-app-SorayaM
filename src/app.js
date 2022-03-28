@@ -93,6 +93,35 @@ function displayCelsiusTemperature(event){
     temperatureElement.innerHTML=Math.round (celciusTemperature);
 }
 
+function displayForcast()
+{
+  let forecastElement=document.querySelector("#forecast");
+  let days=["Thu","Fri","Sat","Sun"];
+  let forecastHTML=`<div clas="row">`;
+  days.forEach(function(day){
+    forecastHTML+=
+    `    <div class="col-2">
+                        <div class="weather-forcast-date">
+                           Thu
+                        </div>
+                        
+                        <img src="https://ssl.gstatic.com/onebox/weather/48/rain_s_cloudy.png" alt="" width="40px" />
+                        <div class="weather-forcast-temperatures">
+                            <spn class="weather-forcast-temperature-max">
+                               18°
+                            </spn>
+                            <spn class="weather-forcast-temperature-min">
+                                12°
+                            </spn>
+                        </div>
+                         
+         </div>
+    `;
+  });
+  forecastHTML+=`<\div>`;
+  forecastElement.innerHTML=forecastHTML;
+}
+
 let celciusTemperature=null;
 
 let form=document.querySelector("#search-form");
@@ -103,6 +132,6 @@ fahreintheitLink.addEventListener("click",displayFahrenheitTemperature);
 
 let celsiusLink=document.querySelector("#celcuis-link");
 celsiusLink.addEventListener("click",displayCelsiusTemperature);
-
-search("New York");
+displayForcast();
+search("Tabriz");
 
