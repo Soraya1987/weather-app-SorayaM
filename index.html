@@ -16,56 +16,65 @@
     <title>WeatherApp</title>
 </head>
 <body>
-     <div class="container">
-       <div class="weather-app-wrapper">
-         <div class="weather-app">
-             <div class="overview">
-                 
-             <div class="row">
-              <div class="col-4">
-                <h1 id="city">
-                </h1>
-                <ul>
-                    <li >Last updated: <span id="date"></span></li>
-                    <li id="nowDate"></li>
-                    <li id="description"></li>
-                </ul>
-              </div>
-              <div class="col-4">
-                  <form id="search-form" >
-                
-                  <div class="row">
-                      <div class="col-8"> 
-                        <input type="search" placeholder="Type a city..." class="form-control w-100" id="city-input" />
-                      </div>
-                    
-                    <div class="col-4">
-                       <input type="submit" value="Search" class="btn btn-primary w-100" />
-                    </div>
-                    </form>
-                </div>
-                
-              </div>
-             </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <div class="clearfix weather-temprature">
-                    <img src="" alt="cloudy" class="float-left" id="icon">
-                    <strong id="temperature"></strong>
-                      <span class="units">°C 
-                    </div>
-                    
-                </div>
-                <div class="col-4">
-                    <ul>
-                        <li>Humidity: <span  id="humidity"></span> %</li>
-                        <li>Wind: <span id="wind"></span>km/h</li>
-                    </ul>
-                </div>
-                <div class="col-4"></div>
+     <div class="container ">
+       <div class="weather-app-wrapper ">
+         <div class="weather-app  border">
+          <div class="overview border p-2">
+                 <div class="row">
+                     <div class="col-8">
+                        <div class="row ">
+                            <div class="col-6">
+                                <h1 id="city">
+                                </h1>
+                                <ul>
+                                    <li>Last updated: <span id="date"></span></li>
+                                    <li id="nowDate"></li>
+                                    <li id="description"></li>
+                                </ul>
+                            </div>
+                            <div class="col-6 ">
+                                <form id="search-form">
+                        
+                                    <div class="row p-3">
+                                        <div class="col-8 ">
+                                            <input type="search" placeholder="Type a city..." class="form-control w-100 border"
+                                                id="city-input" />
+                                        </div>
+                        
+                                        <div class="col-4 ">
+                                            <input type="submit" value="Search" class="btn btn-primary w-100" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div class="row ">
+                            <div class="col-6 ">
+                                <div class="clearfix weather-temprature">
+                                    <img src="" alt="cloudy" class="float-left " id="icon" width="100" />
+                                    <strong id="temperature"></strong>
+                                    <span class="units">°C
+                                </div>
+                        
+                            </div>
+                            <div class="col-6 p-4">
+                                <ul>
+                                    <li>Humidity: <span id="humidity"></span> %</li>
+                                    <li>Wind: <span id="wind"></span>km/h</li>
+                                </ul>
+                            </div>
+                        
+                        </div>
+                     </div>
+                     <div class="col-4">
+                         <img src="img/allWeather.jpg" alt=""class="mt-1" id="tempImg">
+                     </div>
+                 </div>
+            
+          </div>
                 <div class="weather-forcast" id="forecast"> </div>
-            </div>
+        </div>
             
          </div>
        

@@ -105,12 +105,13 @@ function displayForecast(response){
     forcast.forEach(function(forcastDay, index){
         if(index<6){
            forecastHTML+=`
-        <div class="col-2">
-            <div class="weather-forcast-date">${formatDay(forcastDay.dt)}</div>
-              <img src="https://openweathermap.org/img/wn/${forcastDay.weather[0].icon}@2x.png" alt="" width="36">
-            <div class="weather-forcast-temperatures">
-              <span class="weather-forcast-temprature-max"> ${Math.round(forcastDay.temp.max)}° </span>
-              <span class="weather-forcast-temprature-min"> ${Math.round(forcastDay.temp.min)}° </span>
+        <div class="card col m-1 border round">
+            <div class="weather-forcast-date border">
+            ${formatDay(forcastDay.dt)}</div>
+              <img src="https://openweathermap.org/img/wn/${forcastDay.weather[0].icon}@2x.png" alt="" width="100">
+            <div class="weather-forcast-temperatures border">
+              <span class="weather-forcast-temprature-max"> ${Math.round(forcastDay.temp.max)}°</span>
+              <span class="weather-forcast-temprature-min">&nbsp;&nbsp;&nbsp;&nbsp; ${Math.round(forcastDay.temp.min)}° </span>
             </div>  
         </div>
         `;
